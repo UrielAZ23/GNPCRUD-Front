@@ -6,21 +6,29 @@
     <table class="table w-75">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th class="text-center" scope="col">Numero Folio</th>
+          <th class="text-center" scope="col">Cat Impresor</th>
+          <th class="text-center" scope="col">Cve Producto</th>
+          <th class="text-center" scope="col">Fecha</th>
+          <th class="text-center" scope="col-2">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor=" let item of list">
-          <th scope="row">{{item.folio}}</th>
-          <td>{{item.catImpresor}}</td>
-          <td>{{item.cveProducto}}</td>
-          <td>{{item.fecha}}</td>
+          <th  class="text-center" scope="row">{{item.folio}}</th>
+          <td class="text-center" >{{item.catImpresor}}</td>
+          <td class="text-center" >{{item.cveProducto}}</td>
+          <td class="text-center" >{{item.fecha}}</td>
+          <td class="text-center col-2" >
+            <div class="d-flex justify-content-center text-center">
+              <button type="button" class="btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"> Agregar</button>
+              <button type="button" class="btn btn-primary me-3">Modificar</button>
+              <button type="button" class="btn btn-danger">Borrar</button>
+            </div>
+          </td>
         </tr>
     </table>
   </div>
-
+  <app-modal></app-modal>
   <app-footer></app-footer>
 </div>
