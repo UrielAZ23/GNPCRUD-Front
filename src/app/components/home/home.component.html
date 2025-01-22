@@ -1,0 +1,26 @@
+<div class="d-flex flex-column h-100 justify-content-between">
+
+  <app-header></app-header>
+  <div class=" d-flex justify-content-center">
+
+    <table class="table w-75">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let item of list">
+          <th scope="row">{{item.folio}}</th>
+          <td>{{item.catImpresor}}</td>
+          <td>{{item.cveProducto}}</td>
+          <td>{{item.fecha}}</td>
+        </tr>
+    </table>
+  </div>
+
+  <app-footer></app-footer>
+</div>
