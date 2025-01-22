@@ -27,11 +27,17 @@ export class HomeComponent {
             pip.fecha=this.slip[0];
             console.log(this.fecha)
           })
+    })
+  }
 
+  delete(item){
+    
 
+    this.folioservice.deleteFolios(item.folio).subscribe(pipe=>{
+      window.location.reload();
     })
 
-
   }
+
 
 }

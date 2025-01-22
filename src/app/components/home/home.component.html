@@ -2,9 +2,10 @@
 
   <app-header></app-header>
   <div class=" d-flex justify-content-center">
-
+    
     <table class="table w-75">
       <thead>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Agregar</button>
         <tr>
           <th class="text-center" scope="col">Numero Folio</th>
           <th class="text-center" scope="col">Cat Impresor</th>
@@ -21,9 +22,8 @@
           <td class="text-center" >{{item.fecha}}</td>
           <td class="text-center col-2" >
             <div class="d-flex justify-content-center text-center">
-              <button type="button" class="btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"> Agregar</button>
               <button type="button" class="btn btn-primary me-3">Modificar</button>
-              <button type="button" class="btn btn-danger">Borrar</button>
+              <button type="button" class="btn btn-danger" (click)="delete(item)">Borrar</button>
             </div>
           </td>
         </tr>
