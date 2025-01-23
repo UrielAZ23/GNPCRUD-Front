@@ -20,6 +20,11 @@ export class FolioService{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'add',params,{headers:headers});
   }
+  getFolio(folio):Observable<any>{
+    let params =JSON.stringify(folio)
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+folio);
+  }
 
   updateFolios(folio):Observable<any>{
     let params =JSON.stringify(folio)

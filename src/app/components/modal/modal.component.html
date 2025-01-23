@@ -7,23 +7,28 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="Foliotext" placeholder="Folio">
-                <label for="Foliotext">Folio</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="ImpresorTex" placeholder="Password">
-                <label for="ImpresorTex">Cat Impresor</label>
-              </div>
-              <div class="form-floating">
-                <input type="text" class="form-control" id="ProductoText" placeholder="Password">
-                <label for="ProductoText">Cve Producto</label>
-              </div>
+                <form #folioForm="ngForm">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="foliotext" id="Foliotext" placeholder="Folio" ngModel required>
+                        <label for="Foliotext">Folio</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="impresortext" id="ImpresorTex" placeholder="Password" ngModel required>
+                        <label for="ImpresorTex">Cat Impresor</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" name="productotext" id="ProductoText" placeholder="Password" ngModel required>
+                        <label for="ProductoText">Cve Producto</label>
+                    </div>
+                </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary"(click)="save(folioForm)">Save changes</button>
         </div>
       </div>
     </div>
   </div>
+
+ 

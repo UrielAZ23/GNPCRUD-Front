@@ -1,11 +1,25 @@
 <div class="d-flex flex-column h-100 justify-content-between">
 
   <app-header></app-header>
-  <div class=" d-flex justify-content-center">
+  <div class=" d-flex flex-column align-items-center">
     
-    <table class="table w-75">
-      <thead>
+    <div class="w-100 d-flex">
+      <div class="col-6 justify-content-center text-center">
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Agregar</button>
+      </div>
+      <form #folioBus="ngForm" class="w-100 d-flex">
+        <div class=" me-3">
+          <label for="folioV" class="visually-hidden">Folio</label>
+          <input type="text" class="form-control" name="folioV" id="folioV" placeholder="Folio" ngModel>
+        </div>
+        <div class="">
+          <button type="submit" class="btn btn-primary mb-3" (click)="search(folioBus)">Buscar Folio</button>
+        </div>
+        
+      </form>
+        </div>
+        <table class="table w-75">
+          <thead>
         <tr>
           <th class="text-center" scope="col">Numero Folio</th>
           <th class="text-center" scope="col">Cat Impresor</th>
@@ -22,7 +36,7 @@
           <td class="text-center" >{{item.fecha}}</td>
           <td class="text-center col-2" >
             <div class="d-flex justify-content-center text-center">
-              <button type="button" class="btn btn-primary me-3">Modificar</button>
+              <button type="button" class="btn btn-primary me-3"  (click)="update2(item)" data-bs-toggle="modal" data-bs-target="#updateModal">Modificar</button>
               <button type="button" class="btn btn-danger" (click)="delete(item)">Borrar</button>
             </div>
           </td>
@@ -31,4 +45,38 @@
   </div>
   <app-modal></app-modal>
   <app-footer></app-footer>
+</div>
+
+
+
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel">Agregar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              <form #folioForm2="ngForm">
+
+                  <div class="form-floating mb-3">
+                      <input type="text" class="form-control" value="folio.folio" name="foliotext" id="Foliotext" placeholder="Folio" [ngModel]="folio.folio" disabled>
+                      <label for="Foliotext">Folio</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="impresortext" id="ImpresorTex" placeholder="Password" [ngModel]="folio.catImpresor">
+                      <label for="ImpresorTex">Cat Impresor</label>
+                  </div>
+                  <div class="form-floating">
+                      <input type="text" class="form-control" name="productotext" id="ProductoText" placeholder="Password" [ngModel]="folio.cveProducto">
+                      <label for="ProductoText">Cve Producto</label>
+                  </div>
+              </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"(click)="save(folioForm2)">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FolioService } from './service/serviceFolio';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ModalComponent } from './components/modal/modal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [FolioService],
   bootstrap: [AppComponent]
